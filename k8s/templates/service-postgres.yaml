@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: {{ .Values.postgres.name }}
+    labels:
+      app.kubernetes.io/name: {{ .Values.postgres.name }}-db
+      app.kubernetes.io/version: "13"
+      app.kubernetes.io/component: database
+      app.kubernetes.io/part-of: default
+      app.kubernetes.io/managed-by: helm
+      owner: frol555
+spec:
+    selector:
+        app: {{ .Values.postgres.name }}
+    ports:
+      - name: {{ .Values.postgres.name }}-listener
+        protocol: TCP
+        port: {{ .Values.postgres.port }}
+        targetPort: {{ .Values.postgres.name }}

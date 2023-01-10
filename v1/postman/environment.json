@@ -4,32 +4,32 @@
 	"values": [
 		{
 			"key": "serviceUrl",
-			"value": "",
+			"value": "158.160.42.6",
 			"enabled": true
 		},
 		{
 			"key": "identityProviderUrl",
-			"value": "",
+			"value": "https://dev-7qt3yr4j3trl44gq.us.auth0.com",
 			"enabled": true
 		},
 		{
 			"key": "username",
-			"value": "",
+			"value": "mr.frol123@bk.ru",
 			"enabled": true
 		},
 		{
 			"key": "password",
-			"value": "",
+			"value": "rsoi-lab5-frol555",
 			"enabled": true
 		},
 		{
 			"key": "clientId",
-			"value": "",
+			"value": "8Apv9lozBNY1vDu5OX1yK0k5bdz6TabV",
 			"enabled": true
 		},
 		{
 			"key": "clientSecret",
-			"value": "",
+			"value": "KN9iyckgQJRdYJTF5Vkw86-UA0WBqKVMGZHiZ25l5F5yFMFRULKT_hrvoVXu_72M",
 			"enabled": true
 		}
 	],

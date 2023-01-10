@@ -14,12 +14,32 @@ jobs:
       - uses: docker/setup-buildx-action@v2
 
       # TODO build, publish to docker hub, deploy to k8s
+      - name: Build images
+        run: docker compose build
+
+      - name: Login DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_LOGIN }}
+          password: ${{ secrets.DOCKERHUB_PASSWD }}
+
+      - name: Push images
+        run: docker compose push
+
+      - name: Deploy to k8s
+        run: |
+          curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
+          exec -l $SHELL
+          echo ${{ secrets.YC_TOKEN }} | yc init --password-stdin
+          yc managed-kubernetes cluster get-credentials rsoi-lab4-frol555 --external
+          helm install default k8s
+          sleep 60
 
       - name: Run API Tests
         uses: matt-ball/newman-action@master
         with:
-          collection: <variant>/postman/collection.json
-          environment: <variant>/postman/environment.json
+          collection: v1/postman/collection.json
+          environment: v1/postman/environment.json
           delayRequest: 100
           reporters: '[ "cli" ]'
 

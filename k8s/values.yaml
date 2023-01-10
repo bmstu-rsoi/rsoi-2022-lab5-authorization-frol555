@@ -1,0 +1,36 @@
+gateway:
+  name: gateway
+  repo: frol555/gateway-service:latest
+  port: 8080
+  replicaCount: 2
+bonus:
+  name: bonus
+  repo: frol555/bonus-service:latest
+  port: 8050
+  replicaCount: 2
+flight:
+  name: flight
+  repo: frol555/flight-service:latest
+  port: 8060
+  replicaCount: 2
+ticket:
+  name: ticket
+  repo: frol555/ticket-service:latest
+  port: 8070
+  replicaCount: 2
+postgres:
+  name: postgres
+  repo: library/postgres:13
+  port: 5432
+  replicaCount: 1
+  default_database:
+    name: postgres
+    user: postgres
+    password: postgres
+  resources:
+    requests:
+      cpu: 200m
+      memory: 512Mi
+    limits:
+      cpu: 200m
+      memory: 1024Mi

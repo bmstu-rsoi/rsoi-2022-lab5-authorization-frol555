@@ -34,41 +34,16 @@
 							"type": "noauth"
 						},
 						"method": "POST",
-						"header": [],
+						"header":[
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "scope",
-									"value": "openid",
-									"type": "text"
-								},
-								{
-									"key": "grant_type",
-									"value": "password",
-									"type": "text"
-								},
-								{
-									"key": "username",
-									"value": "{{username}}",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "{{password}}",
-									"type": "text"
-								},
-								{
-									"key": "clientId",
-									"value": "{{clientId}}",
-									"type": "text"
-								},
-								{
-									"key": "clientSecret",
-									"value": "{{clientSecret}}",
-									"type": "text"
-								}
-							]
+							"mode": "raw",
+							"raw": "{\n    \"client_id\":\"{{clientId}}\",\n    \"client_secret\":\"{{clientSecret}}\",\n    \"grant_type\":\"password\",\n    \"username\":\"{{username}}\",\n    \"password\":\"{{password}}\",\n    \"scope\":\"openid\"\n}"
 						},
 						"url": {
 							"raw": "{{identityProviderUrl}}/oauth/token",

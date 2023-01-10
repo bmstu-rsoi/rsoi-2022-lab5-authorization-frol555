@@ -1,0 +1,8 @@
+apiVersion: v2
+description: app
+type: application
+name: app
+version: 1.0.0
+mantainers:
+  - name: frol555
+    email: frol.vadim555@yandex.ru
